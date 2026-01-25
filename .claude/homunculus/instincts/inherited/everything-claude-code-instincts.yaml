@@ -1,0 +1,555 @@
+# Instincts generated from https://github.com/affaan-m/everything-claude-code
+# Generated: 2026-01-25T18:32:44.537Z
+# Version: 2.0
+
+---
+id: everything-claude-code-commit-conventional
+trigger: "when writing a commit message"
+confidence: 0.85
+domain: git
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Commit Conventional
+
+## Action
+
+Use conventional commit format with prefixes: fix, feat, revert, style, docs
+
+## Evidence
+
+- 29 commits analyzed
+- Detected conventional commit pattern
+- Examples: fix: security and documentation fixes, revert: remove hooks declaration - auto-loaded by convention
+
+---
+id: everything-claude-code-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Commit Length
+
+## Action
+
+Write moderate-length commit messages (~50 characters)
+
+## Evidence
+
+- Average commit message length: 52 chars
+- Based on 29 commits
+
+---
+id: everything-claude-code-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: everything-claude-code-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Export Style
+
+## Action
+
+Prefer mixed exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: mixed
+
+---
+id: everything-claude-code-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: everything-claude-code-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Test Framework
+
+## Action
+
+Use unknown as the test framework
+
+## Evidence
+
+- Test framework detected: unknown
+- File pattern: *.test.js
+
+---
+id: everything-claude-code-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.js
+
+## Evidence
+
+- File pattern: *.test.js
+- Consistent across test files
+
+---
+id: everything-claude-code-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~9x per month
+- Files: **/*.test.*, **/api/**
+
+---
+id: everything-claude-code-workflow-plugin-configuration-fixes
+trigger: "when doing plugin configuration fixes"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Plugin Configuration Fixes
+
+## Action
+
+Follow the plugin-configuration-fixes workflow:
+1. Identify plugin configuration issue
+2. Update .claude-plugin/plugin.json or .claude-plugin/marketplace.json
+3. Test plugin loading/installation
+4. Document fix rationale in commit
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~8x per month
+- Files: .claude-plugin/plugin.json, .claude-plugin/marketplace.json
+
+---
+id: everything-claude-code-workflow-hooks-configuration-updates
+trigger: "when doing hooks configuration updates"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Hooks Configuration Updates
+
+## Action
+
+Follow the hooks-configuration-updates workflow:
+1. Identify hook execution issue
+2. Update hooks/hooks.json configuration
+3. Fix script paths or trigger events
+4. Test hook execution
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: hooks/hooks.json
+
+---
+id: everything-claude-code-workflow-security-documentation-fixes
+trigger: "when doing security documentation fixes"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Security Documentation Fixes
+
+## Action
+
+Follow the security-documentation-fixes workflow:
+1. Identify security vulnerability or documentation gap
+2. Fix code security issue (e.g., command injection)
+3. Update documentation with security warnings
+4. Reference issue numbers in commit
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: scripts/lib/utils.js, agents/*.md, scripts/*.js
+
+---
+id: everything-claude-code-workflow-readme-content-updates
+trigger: "when doing readme content updates"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Readme Content Updates
+
+## Action
+
+Follow the readme-content-updates workflow:
+1. Identify README improvement needed
+2. Update content/formatting/links
+3. Verify markdown rendering
+4. Commit with descriptive message
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~6x per month
+- Files: README.md
+
+---
+id: everything-claude-code-workflow-cross-platform-script-migration
+trigger: "when doing cross platform script migration"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Workflow Cross Platform Script Migration
+
+## Action
+
+Follow the cross-platform-script-migration workflow:
+1. Identify platform-specific scripts
+2. Rewrite scripts in Node.js for cross-platform compatibility
+3. Add utility libraries in scripts/lib/
+4. Add comprehensive tests
+5. Update hook configurations
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: scripts/hooks/*.js, scripts/lib/*.js, tests/**/*.js
+
+---
+id: everything-claude-code-conventional-commits
+trigger: "When creating a commit message"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Conventional Commits
+
+## Action
+
+Use conventional commit format with prefix (fix|feat|revert|style|docs) followed by colon and description around 52 characters
+
+## Evidence
+
+- All 8 example commits follow conventional format
+- Average length 52 characters
+- Consistent prefixes: fix, feat, revert, style, docs
+
+---
+id: everything-claude-code-camelcase-files
+trigger: "When creating or naming JavaScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Camelcase Files
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Naming convention files: camelCase
+- JavaScript language primary
+
+---
+id: everything-claude-code-pascalcase-classes
+trigger: "When defining a class"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Pascalcase Classes
+
+## Action
+
+Use PascalCase for class names
+
+## Evidence
+
+- Naming convention classes: PascalCase
+
+---
+id: everything-claude-code-screaming-snake-constants
+trigger: "When defining constants"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Screaming Snake Constants
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names
+
+## Evidence
+
+- Naming convention constants: SCREAMING_SNAKE_CASE
+
+---
+id: everything-claude-code-test-files-suffix
+trigger: "When creating test files"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Test Files Suffix
+
+## Action
+
+Name test files with *.test.js pattern
+
+## Evidence
+
+- Test file pattern: *.test.js
+- Files involved in workflows include **/*.test.*
+
+---
+id: everything-claude-code-try-catch-errors
+trigger: "When handling errors in JavaScript"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Try Catch Errors
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Error handling style: try-catch
+- No custom error classes or boundaries
+
+---
+id: everything-claude-code-fix-plugin-config
+trigger: "When plugin installation or loading fails"
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Fix Plugin Config
+
+## Action
+
+Update .claude-plugin/plugin.json or .claude-plugin/marketplace.json and remove version fields for auto-updates
+
+## Evidence
+
+- 8x/month frequency
+- Commits: 'remove version fields from marketplace.json', 'add hooks declaration to plugin.json'
+
+---
+id: everything-claude-code-hooks-json-updates
+trigger: "When hooks fail to execute or trigger incorrectly"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Hooks Json Updates
+
+## Action
+
+Update hooks/hooks.json configuration file with correct script paths and trigger events
+
+## Evidence
+
+- 4x/month frequency
+- Commit: 'remove hooks declaration - auto-loaded by convention'
+
+---
+id: everything-claude-code-security-fixes
+trigger: "When security vulnerabilities are discovered"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Security Fixes
+
+## Action
+
+Fix code security issues in scripts/lib/utils.js and update documentation with security warnings
+
+## Evidence
+
+- 2x/month frequency
+- Commit: 'security and documentation fixes'
+
+---
+id: everything-claude-code-readme-restructure
+trigger: "When adding new features or improving documentation layout"
+confidence: 0.8
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Readme Restructure
+
+## Action
+
+Update README.md with shorthand to longform guide flow and side-by-side layout
+
+## Evidence
+
+- 6x/month frequency
+- Commits: 'restructure README to flow shorthand → longform guides together', 'side-by-side guide layout'
+
+---
+id: everything-claude-code-nodejs-migration
+trigger: "When adding cross-platform support or replacing bash scripts"
+confidence: 0.88
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Nodejs Migration
+
+## Action
+
+Rewrite scripts in Node.js and place utility libraries in scripts/lib/ directory
+
+## Evidence
+
+- 2x/month frequency
+- Commit: 'cross-platform support with Node.js scripts'
+
+---
+id: everything-claude-code-feature-with-tests
+trigger: "When implementing new features"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Feature With Tests
+
+## Action
+
+Add feature implementation, then add tests, then update documentation in sequence
+
+## Evidence
+
+- 9x/month frequency
+- Commits show pattern: feat implementation → tests → docs
+- Files involved: **/*.test.*, **/api/**
+
+---
+id: everything-claude-code-skill-config-structure
+trigger: "When creating new skills"
+confidence: 0.7
+domain: architecture
+source: repo-analysis
+source_repo: affaan-m/everything-claude-code
+---
+
+# Everything Claude Code Skill Config Structure
+
+## Action
+
+Create config.json file in skills/[skill-name]/ directory structure
+
+## Evidence
+
+- skills/continuous-learning/config.json in example
+- skills folder in common folders
+
