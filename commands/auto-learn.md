@@ -76,6 +76,62 @@ Meta file format:
     "org": "qashierpos"
   }
 }
+```
+
+### 1.7 Ensure Repo Skill Exists
+
+For each whitelisted repo with pending transcripts, check if skill exists:
+
+```bash
+SKILL_DIR="${CLAUDE_PLUGIN_ROOT}/skills/repos/<alias>"
+```
+
+**If skill doesn't exist, create it:**
+
+1. Look up alias from whitelist config
+2. Find repo's local path from `cwd` in meta.json
+3. Read README.md from the repo (first 200 lines)
+4. Generate SKILL.md based on README content
+
+**Skill template:**
+```markdown
+---
+name: <alias>
+description: <brief description from README>
+repo: <org>/<repo>
+auto_generated: true
+created: <date>
+---
+
+# <Repo Display Name>
+
+<Brief 2-3 sentence description based on README>
+
+## Repository Info
+
+- **Org:** <org>
+- **Repo:** <repo>  
+- **Local Path:** <cwd>
+
+## Learned Patterns
+
+_No patterns learned yet. Run `/auto-learn` after working in this repo._
+
+## Notes
+
+_Add manual notes about this codebase here._
+```
+
+**Example:**
+```
+skills/repos/
+├── gen2/
+│   └── SKILL.md    # Qashier Backend (gen2)
+├── gateway/
+│   └── SKILL.md    # Qashier Gateway
+└── everything/
+    └── SKILL.md    # Claude Code plugin system
+```
 
 ### 2. For Each Transcript File
 
