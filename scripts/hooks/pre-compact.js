@@ -13,6 +13,7 @@
 
 const path = require('path');
 const fs = require('fs');
+const { execSync } = require('child_process');
 const {
   getSessionsDir,
   getLearnedSkillsDir,
@@ -24,6 +25,60 @@ const {
   countInFile,
   log
 } = require('../lib/utils');
+
+/**
+ * Get git repository info from a directory
+ */
+function getGitInfo(cwd) {
+  const info = {
+    remote: null,
+    branch: null,
+    repoName: null,
+    org: null
+  };
+
+  try {
+    // Get remote URL
+    const remote = execSync('git remote get-url origin 2>/dev/null', { cwd, encoding: 'utf8' }).trim();
+    info.remote = remote;
+
+    // Parse org/repo from remote URL
+    // Supports: https://github.com/org/repo.git, git@github.com:org/repo.git
+    const match = remote.match(/[:/]([^/]+)\/([^/]+?)(?:\.git)?$/);
+    if (match) {
+      info.org = match[1];
+      info.repoName = match[2];
+    }
+
+    // Get current branch
+    info.branch = execSync('git branch --show-current 2>/dev/null', { cwd, encoding: 'utf8' }).trim();
+  } catch {
+    // Not a git repo or git not available
+  }
+
+  return info;
+}
+
+/**
+ * Extract cwd from transcript (first user message)
+ */
+function extractCwdFromTranscript(transcriptPath) {
+  try {
+    const content = fs.readFileSync(transcriptPath, 'utf8');
+    const lines = content.split('\n').filter(Boolean);
+    for (const line of lines) {
+      try {
+        const obj = JSON.parse(line);
+        if (obj.cwd) return obj.cwd;
+      } catch {
+        continue;
+      }
+    }
+  } catch {
+    // Ignore errors
+  }
+  return process.cwd();
+}
 
 async function main() {
   const sessionsDir = getSessionsDir();
@@ -62,14 +117,33 @@ async function main() {
       
       const sessionId = process.env.CLAUDE_SESSION_ID || 'unknown';
       const shortId = sessionId.slice(-8);
-      const dumpFile = path.join(learningQueueDir, `${timestamp.replace(/[: ]/g, '-')}-${shortId}.jsonl`);
+      const baseFilename = `${timestamp.replace(/[: ]/g, '-')}-${shortId}`;
+      const dumpFile = path.join(learningQueueDir, `${baseFilename}.jsonl`);
+      const metaFile = path.join(learningQueueDir, `${baseFilename}.meta.json`);
       
+      // Get cwd from transcript and extract git info
+      const cwd = extractCwdFromTranscript(transcriptPath);
+      const gitInfo = getGitInfo(cwd);
+      
+      // Create metadata
+      const metadata = {
+        timestamp,
+        sessionId,
+        messageCount,
+        cwd,
+        git: gitInfo,
+        transcriptFile: `${baseFilename}.jsonl`
+      };
+
       // Copy transcript to learning queue
       try {
         fs.copyFileSync(transcriptPath, dumpFile);
-        log(`[PreCompact] 📚 Transcript dumped for learning: ${dumpFile}`);
-        log(`[PreCompact] Messages saved: ${messageCount}`);
-        appendFile(compactionLog, `  -> Dumped ${messageCount} messages to ${path.basename(dumpFile)}\n`);
+        fs.writeFileSync(metaFile, JSON.stringify(metadata, null, 2));
+        
+        const repoLabel = gitInfo.repoName ? `[${gitInfo.org}/${gitInfo.repoName}]` : '[no-repo]';
+        log(`[PreCompact] 📚 Transcript dumped for learning: ${repoLabel}`);
+        log(`[PreCompact] Messages: ${messageCount}, Branch: ${gitInfo.branch || 'N/A'}`);
+        appendFile(compactionLog, `  -> Dumped ${messageCount} messages to ${path.basename(dumpFile)} ${repoLabel}\n`);
       } catch (err) {
         log(`[PreCompact] Failed to dump transcript: ${err.message}`);
       }

@@ -1,13 +1,16 @@
 # /auto-learn - Automatic Pattern Extraction
 
 Process transcripts in the learning queue and extract reusable instincts/patterns.
+Transcripts are grouped by git repository for targeted skill generation.
 
 ## Usage
 
 ```
-/auto-learn              # Process all pending transcripts
-/auto-learn --preview    # Show what would be extracted without saving
-/auto-learn --file <f>   # Process a specific transcript file
+/auto-learn                    # Process all pending transcripts
+/auto-learn --repo <name>      # Process only transcripts from specific repo
+/auto-learn --preview          # Show what would be extracted without saving
+/auto-learn --file <f>         # Process a specific transcript file
+/auto-learn --list-repos       # List repos with pending transcripts
 ```
 
 ## Process
@@ -17,9 +20,38 @@ Process transcripts in the learning queue and extract reusable instincts/pattern
 ```bash
 QUEUE_DIR="${CLAUDE_SESSIONS_DIR:-$HOME/.claude/sessions}/learning-queue"
 ls -la "$QUEUE_DIR"/*.jsonl 2>/dev/null
+ls -la "$QUEUE_DIR"/*.meta.json 2>/dev/null
 ```
 
 If no files found, report "No transcripts pending" and exit.
+
+### 1.5 Group by Repository
+
+Read `.meta.json` files to group transcripts by repo:
+
+```
+Pending transcripts by repository:
+─────────────────────────────────
+[qashierpos/qashier-cloud-function-gen2] 3 transcripts (45 messages)
+[qashierpos/qashier-gateway]             1 transcript  (12 messages)
+[chunrui-qashier/everything-claude-code] 2 transcripts (28 messages)
+[no-repo]                                1 transcript  (8 messages)
+```
+
+Meta file format:
+```json
+{
+  "timestamp": "2026-01-28 03:20:15",
+  "sessionId": "abc123",
+  "messageCount": 15,
+  "cwd": "/home/chunrui/qashier-cloud-function-gen2",
+  "git": {
+    "remote": "https://github.com/qashierpos/qashier-cloud-function-gen2.git",
+    "branch": "main",
+    "repoName": "qashier-cloud-function-gen2",
+    "org": "qashierpos"
+  }
+}
 
 ### 2. For Each Transcript File
 
@@ -65,10 +97,26 @@ transcript: "<source-filename>"
 
 ### 4. Save or Update Instincts
 
-**Save location:**
+**Save location (organized by repo):**
 ```
-~/.claude/homunculus/instincts/personal/<id>.md
+~/.claude/homunculus/instincts/
+├── personal/                           # Cross-repo instincts
+│   └── <id>.md
+└── repos/                              # Repo-specific instincts
+    ├── qashierpos/
+    │   ├── qashier-cloud-function-gen2/
+    │   │   ├── _SKILL.md               # Auto-generated skill for this repo
+    │   │   └── <instinct-id>.md
+    │   └── qashier-gateway/
+    │       └── ...
+    └── chunrui-qashier/
+        └── everything-claude-code/
+            └── ...
 ```
+
+**Routing logic:**
+- If pattern is specific to a repo's codebase → save to `repos/<org>/<repo>/`
+- If pattern is general (coding style, workflow) → save to `personal/`
 
 **If instinct already exists:**
 - Increase confidence by 0.1 (max 0.9)
@@ -79,12 +127,39 @@ transcript: "<source-filename>"
 - Start with confidence 0.5
 - Ask user to confirm before saving (unless --auto flag)
 
-### 5. Archive Processed Transcript
+### 5. Generate/Update Repo Skill
+
+For each repo with instincts, generate or update `_SKILL.md`:
+
+```markdown
+---
+name: qashier-cloud-function-gen2
+description: Learned patterns for qashier-cloud-function-gen2 backend
+repo: qashierpos/qashier-cloud-function-gen2
+auto_generated: true
+last_updated: 2026-01-28
+---
+
+# qashier-cloud-function-gen2 Patterns
+
+## High Confidence (0.7+)
+- [instinct-1](./instinct-1.md): Description...
+- [instinct-2](./instinct-2.md): Description...
+
+## Medium Confidence (0.5-0.7)
+- ...
+
+## Low Confidence (<0.5)
+- ...
+```
+
+### 6. Archive Processed Transcript
 
 ```bash
 ARCHIVE_DIR="${CLAUDE_SESSIONS_DIR:-$HOME/.claude/sessions}/learning-archive"
 mkdir -p "$ARCHIVE_DIR"
-mv "$QUEUE_DIR/<file>" "$ARCHIVE_DIR/"
+mv "$QUEUE_DIR/<file>.jsonl" "$ARCHIVE_DIR/"
+mv "$QUEUE_DIR/<file>.meta.json" "$ARCHIVE_DIR/"
 ```
 
 ### 6. Report Summary
@@ -117,8 +192,11 @@ Files archived: 3
 | `--preview` | Analyze but don't save (dry run) |
 | `--auto` | Skip confirmation for new instincts |
 | `--file <f>` | Process specific file only |
+| `--repo <name>` | Process only transcripts from this repo (e.g., `qashier-gateway`) |
+| `--list-repos` | List repos with pending transcripts and exit |
 | `--min-confidence <n>` | Min confidence to save (default: 0.3) |
 | `--verbose` | Show detailed analysis |
+| `--skip-repo <name>` | Skip transcripts from this repo |
 
 ## Directory Setup
 
