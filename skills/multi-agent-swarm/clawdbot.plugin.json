@@ -1,0 +1,7 @@
+{
+  "id": "multi-agent-swarm",
+  "name": "multi-agent-swarm",
+  "description": "Coordinate multiple AI agents working in parallel. Includes consensus protocols, drift prevention, and hierarchical task routing.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

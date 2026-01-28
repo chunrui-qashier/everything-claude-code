@@ -1,0 +1,7 @@
+{
+  "id": "repo-gen2-core-transaction",
+  "name": "repo-gen2-core-transaction",
+  "description": "Qashier Transaction Service - handles POS transactions, orders, payment flows",
+  "version": "1.0.0",
+  "skills": ["."]
+}

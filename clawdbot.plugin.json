@@ -1,7 +1,7 @@
 {
   "id": "everything-claude-code",
-  "name": "Everything Claude Code",
-  "description": "Complete collection of battle-tested skills, commands, and rules from an Anthropic hackathon winner. Includes TDD workflow, continuous learning, planning patterns, and quant research tools.",
+  "name": "Everything Claude Code (Full Bundle)",
+  "description": "Complete collection of all skills from the Anthropic hackathon winner. Install this for everything, or install individual skills separately from ./skills/<name>/",
   "version": "2.0.0",
   "skills": [
     "./skills/tdd-workflow",
@@ -20,22 +20,5 @@
     "./skills/multi-agent-swarm",
     "./skills/quant-research",
     "./skills/deep-research"
-  ],
-  "configSchema": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "enabledSkills": {
-        "type": "array",
-        "description": "List of skill names to enable (empty = all)",
-        "items": { "type": "string" }
-      }
-    }
-  },
-  "uiHints": {
-    "enabledSkills": {
-      "label": "Enabled Skills",
-      "placeholder": "Leave empty to enable all skills"
-    }
-  }
+  ]
 }

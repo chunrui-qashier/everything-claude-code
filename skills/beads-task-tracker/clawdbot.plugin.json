@@ -1,0 +1,7 @@
+{
+  "id": "beads-task-tracker",
+  "name": "beads-task-tracker",
+  "description": "Distributed git-backed task tracking for AI agents. Hash-based IDs prevent merge conflicts in multi-agent/multi-branch workflows.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

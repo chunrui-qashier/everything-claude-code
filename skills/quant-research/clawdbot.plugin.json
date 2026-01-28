@@ -1,0 +1,7 @@
+{
+  "id": "quant-research",
+  "name": "quant-research",
+  "description": "Quantitative finance research and strategy development. Includes backtesting, data analysis, and trading system patterns for Linux cloud environments.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

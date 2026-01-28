@@ -1,0 +1,7 @@
+{
+  "id": "repo-gen2",
+  "name": "repo-gen2",
+  "description": "Qashier Backend Services - Monorepo for backend services powering web, mobile, POS",
+  "version": "1.0.0",
+  "skills": ["."]
+}

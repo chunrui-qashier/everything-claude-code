@@ -1,0 +1,7 @@
+{
+  "id": "deep-research",
+  "name": "deep-research",
+  "description": "Autonomous multi-step research agent. Breaks down complex questions, gathers evidence, synthesizes findings, and produces structured reports.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "iterative-retrieval",
+  "name": "iterative-retrieval",
+  "description": "Pattern for progressively refining context retrieval to solve the subagent context problem",
+  "version": "1.0.0",
+  "skills": ["."]
+}

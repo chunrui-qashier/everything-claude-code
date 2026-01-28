@@ -1,0 +1,7 @@
+{
+  "id": "continuous-learning",
+  "name": "continuous-learning",
+  "description": "Automatically extract reusable patterns from Claude Code sessions and save them as learned skills for future use.",
+  "version": "1.0.0",
+  "skills": ["."]
+}
