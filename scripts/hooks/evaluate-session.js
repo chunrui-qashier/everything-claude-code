@@ -13,8 +13,10 @@
 
 const path = require('path');
 const fs = require('fs');
+const os = require('os');
 const {
   getLearnedSkillsDir,
+  getSessionsDir,
   ensureDir,
   readFile,
   countInFile,
@@ -39,7 +41,7 @@ async function main() {
 
       if (config.learned_skills_path) {
         // Handle ~ in path
-        learnedSkillsPath = config.learned_skills_path.replace(/^~/, require('os').homedir());
+        learnedSkillsPath = config.learned_skills_path.replace(/^~/, os.homedir());
       }
     } catch {
       // Invalid config, use defaults
@@ -67,7 +69,21 @@ async function main() {
 
   // Signal to Claude that session should be evaluated for extractable patterns
   log(`[ContinuousLearning] Session has ${messageCount} messages - evaluate for extractable patterns`);
-  log(`[ContinuousLearning] Save learned skills to: ${learnedSkillsPath}`);
+  log(`[ContinuousLearning] Run /auto-learn to extract patterns from this session`);
+
+  // Check learning queue for pending transcripts
+  const learningQueueDir = path.join(getSessionsDir(), 'learning-queue');
+  if (fs.existsSync(learningQueueDir)) {
+    try {
+      const pendingFiles = fs.readdirSync(learningQueueDir).filter(f => f.endsWith('.jsonl'));
+      if (pendingFiles.length > 0) {
+        log(`[ContinuousLearning] 📚 ${pendingFiles.length} transcript(s) pending in learning-queue`);
+        log(`[ContinuousLearning] Run /auto-learn to process them`);
+      }
+    } catch {
+      // Ignore errors reading queue
+    }
+  }
 
   process.exit(0);
 }
