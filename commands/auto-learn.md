@@ -83,7 +83,7 @@ Meta file format:
 For each whitelisted repo with pending transcripts, check if skill exists:
 
 ```bash
-SKILL_DIR="${CLAUDE_PLUGIN_ROOT}/skills/repos/<alias>"
+SKILL_DIR="${CLAUDE_PLUGIN_ROOT}/skills/repo-<alias>"
 ```
 
 **If skill doesn't exist, create it:**
@@ -124,7 +124,7 @@ _Add manual notes about this codebase here._
 
 **Example:**
 ```
-skills/repos/
+skills/repo-
 ├── gen2/
 │   └── SKILL.md    # Qashier Backend (gen2)
 ├── gateway/
