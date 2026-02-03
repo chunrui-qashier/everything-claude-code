@@ -1,6 +1,6 @@
 # Clawdbot Plugin
 
-This repository is a Clawdbot plugin with **24 independent skills**.
+This repository is a Clawdbot plugin with **25 independent skills**.
 
 ## Installation
 
@@ -39,6 +39,7 @@ clawdbot plugins install github:chunrui-qashier/everything-claude-code/skills/td
 | 🧪 golang-testing | Go testing patterns |
 | 🐘 postgres-patterns | PostgreSQL patterns |
 | 🔒 security-review | Security review checklist |
+| 📚 skill-learner | Self-directed skill creation and learning |
 
 ## Uninstall
 

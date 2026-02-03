@@ -1,0 +1,7 @@
+{
+  "id": "skill-learner",
+  "name": "skill-learner",
+  "description": "Create or update skills in the everything-claude-code repo. Clone repo, find existing skill to update or create new one, make it installable as independent plugin for both Clawdbot and Claude Code, then commit and push.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

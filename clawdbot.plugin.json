@@ -20,6 +20,7 @@
     "./skills/beads-task-tracker",
     "./skills/multi-agent-swarm",
     "./skills/quant-research",
-    "./skills/deep-research"
+    "./skills/deep-research",
+    "./skills/skill-learner"
   ]
 }
