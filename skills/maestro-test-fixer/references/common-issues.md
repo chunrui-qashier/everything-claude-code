@@ -28,6 +28,27 @@
       visible: "Please enter staff PIN"
 ```
 
+### Problem: Button is an IMAGE with text overlay
+**Symptom:** `Element not found: Text matching regex: CASH` even though button is visible
+
+**Cause:** Some buttons render text as part of an image, not as a text element.
+
+**Solution:** Use element ID instead of text:
+```yaml
+# Bad - text is part of image, not accessible
+- tapOn:
+    text: "CASH"
+
+# Good - use the button's resource ID
+- tapOn:
+    id: "com.pos.qashier:id/payment_cash"
+```
+
+**How to find element IDs:**
+```bash
+maestro hierarchy | grep -i "payment"
+```
+
 ### Problem: Element appears with different text
 **Symptom:** `Text matching regex: TAKEAWAY` not found
 
@@ -220,6 +241,40 @@ curl -Ls "https://get.maestro.mobile.dev" | bash
 ```bash
 adb devices -l
 # Should show: emulator-5554 device product:... model:...
+```
+
+---
+
+## Payment Flow Issues
+
+### Problem: Cancel confirmation dialog appears
+**Symptom:** Pressing back on payment page shows "Confirm cancel & change payment method?"
+
+**Solution:** Handle the confirmation dialog:
+```yaml
+- pressKey: back
+- waitForAnimationToEnd
+- runFlow:
+    when:
+      visible: "Confirm cancel"
+    commands:
+      - tapOn:
+          text: "YES"
+      - waitForAnimationToEnd
+```
+
+### Problem: Low Stock Alert blocks adding items
+**Symptom:** Adding product shows "Low Stock Alert" dialog
+
+**Solution:** Handle conditionally:
+```yaml
+- runFlow:
+    when:
+      visible: "Low Stock Alert"
+    commands:
+      - tapOn:
+          text: "CONFIRM AND ADD"
+      - waitForAnimationToEnd
 ```
 
 ---

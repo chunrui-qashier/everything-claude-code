@@ -69,6 +69,8 @@ Common issues and fixes:
 | Missing wait | Element not found | Add `extendedWaitUntil` with timeout |
 | State not reset | Test passes alone, fails in sequence | Add `force-stop` before test |
 | Dialog not handled | Unexpected dialog blocks flow | Add conditional `runFlow` with `when` |
+| **Image button** | Text selector fails on icon buttons | **Use element ID instead of text** |
+| Cancel confirmation | Back button triggers "Confirm cancel?" | Handle with `tapOn: "YES"` |
 
 ### Step 5: Apply Fix
 
