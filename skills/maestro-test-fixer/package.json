@@ -1,0 +1,10 @@
+{
+  "name": "clawdbot-skill-maestro-test-fixer",
+  "version": "1.0.0",
+  "description": "Systematic debugging and fixing of Maestro UI test scripts",
+  "clawdbot": {
+    "extensions": {
+      "skills": ["."]
+    }
+  }
+}

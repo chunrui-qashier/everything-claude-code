@@ -4,6 +4,7 @@
   "description": "Complete collection of battle-tested skills from an Anthropic hackathon winner",
   "clawdbot": {
     "skills": [
+      "./skills/maestro-test-fixer",
       "./skills/tdd-workflow",
       "./skills/continuous-learning-v2",
       "./skills/verification-loop",
