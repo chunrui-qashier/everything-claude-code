@@ -4,6 +4,7 @@
   "description": "Complete collection of all skills from the Anthropic hackathon winner. Install this for everything, or install individual skills separately from ./skills/<name>/",
   "version": "2.0.0",
   "skills": [
+    "./skills/maestro-test-fixer",
     "./skills/tdd-workflow",
     "./skills/continuous-learning-v2",
     "./skills/verification-loop",

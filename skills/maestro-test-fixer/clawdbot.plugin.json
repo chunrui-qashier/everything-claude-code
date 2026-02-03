@@ -1,0 +1,7 @@
+{
+  "id": "maestro-test-fixer",
+  "name": "Maestro Test Fixer",
+  "description": "Systematic debugging and fixing of Maestro UI test scripts. Step-by-step workflow for Android/iOS test failures.",
+  "version": "1.0.0",
+  "skills": ["."]
+}
