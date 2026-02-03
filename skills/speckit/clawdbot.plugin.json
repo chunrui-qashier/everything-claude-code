@@ -1,0 +1,19 @@
+{
+  "id": "speckit",
+  "name": "Spec Kit - Spec-Driven Development",
+  "description": "Complete spec-driven development workflow. From constitution to implementation.",
+  "version": "1.0.0",
+  "skills": [
+    ".",
+    "./speckit-constitution",
+    "./speckit-specify",
+    "./speckit-baseline",
+    "./speckit-clarify",
+    "./speckit-plan",
+    "./speckit-analyze",
+    "./speckit-tasks",
+    "./speckit-taskstoissues",
+    "./speckit-checklist",
+    "./speckit-implement"
+  ]
+}

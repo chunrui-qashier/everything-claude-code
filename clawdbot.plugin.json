@@ -21,6 +21,7 @@
     "./skills/multi-agent-swarm",
     "./skills/quant-research",
     "./skills/deep-research",
-    "./skills/skill-learner"
+    "./skills/skill-learner",
+    "./skills/speckit"
   ]
 }
