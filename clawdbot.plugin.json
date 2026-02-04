@@ -22,6 +22,7 @@
     "./skills/quant-research",
     "./skills/deep-research",
     "./skills/skill-learner",
-    "./skills/speckit"
+    "./skills/speckit",
+    "./skills/test-fix-loop"
   ]
 }

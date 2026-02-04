@@ -1,0 +1,7 @@
+{
+  "id": "test-fix-loop",
+  "name": "test-fix-loop",
+  "description": "Multi-agent test-fix cycle. CC-Test writes failure reports, Fixers repair code, Lead reviews, then re-test until all pass.",
+  "version": "1.0.0",
+  "skills": ["."]
+}
