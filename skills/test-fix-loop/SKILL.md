@@ -259,3 +259,51 @@ cron.add({ ... })
 3. **Iteration limit** — prevent infinite loops
 4. **Escalation path** — human intervenes when stuck
 5. **Atomic fixes** — one logical fix per iteration, don't over-engineer
+
+---
+
+## Lessons Learned (2026-02-04)
+
+### Express Async Middleware 陷阱
+
+**问题**: 单元测试全过，但集成测试 500 错误
+**根因**: Express async 中间件不保证在路由前完成
+
+```typescript
+// ❌ 不可靠
+app.use(async (req, res, next) => {
+  await initService();
+  next();
+});
+
+// ✅ 移到 boot 阶段
+export const initializeApp = async () => {
+  await initService();
+};
+// 在 server.listen() 前调用
+```
+
+### Vitest Mock Hoisting
+
+```typescript
+// ❌ mockRedis 是 undefined
+const mockRedis = { publish: vi.fn() };
+vi.mock('@common/infra', () => ({ getRedisSingleton: () => mockRedis }));
+
+// ✅ 使用 vi.hoisted()
+const { mockRedis } = vi.hoisted(() => ({ mockRedis: { publish: vi.fn() } }));
+vi.mock('@common/infra', () => ({ getRedisSingleton: () => mockRedis }));
+```
+
+### 单元测试 ≠ 集成测试
+
+- 单元测试 mock 依赖，可能掩盖初始化问题
+- 集成测试验证真实环境行为
+- **两者都要有，缺一不可**
+
+### Cron 协调器防中断
+
+当任务可能耗时较长时，设置 cron 每 5 分钟检查：
+- 防止 agent 卡住无人知晓
+- 自动汇报进度
+- 任务完成后自动清理
