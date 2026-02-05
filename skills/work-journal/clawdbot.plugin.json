@@ -1,0 +1,7 @@
+{
+  "id": "work-journal",
+  "name": "work-journal",
+  "description": "Standardized work journal format for daily session summaries. Captures completed work, lessons learned, time tracking, and next steps.",
+  "version": "1.0.0",
+  "skills": ["."]
+}

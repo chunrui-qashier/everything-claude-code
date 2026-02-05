@@ -24,6 +24,7 @@
     "./skills/skill-learner",
     "./skills/speckit",
     "./skills/test-fix-loop",
-    "./skills/txn-converter-bug-fix"
+    "./skills/txn-converter-bug-fix",
+    "./skills/work-journal"
   ]
 }
