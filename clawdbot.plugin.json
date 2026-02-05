@@ -23,6 +23,7 @@
     "./skills/deep-research",
     "./skills/skill-learner",
     "./skills/speckit",
-    "./skills/test-fix-loop"
+    "./skills/test-fix-loop",
+    "./skills/txn-converter-bug-fix"
   ]
 }
