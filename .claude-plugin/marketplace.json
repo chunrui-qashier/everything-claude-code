@@ -9,6 +9,30 @@
   },
   "plugins": [
     {
+      "name": "speckit",
+      "source": "./skills/speckit",
+      "description": "Spec-Driven Development workflow. Use when starting new features, documenting requirements, creating implementation plans, or managing development tasks.",
+      "author": {
+        "name": "dceoy"
+      },
+      "license": "AGPL-3.0",
+      "keywords": ["spec", "planning", "tasks", "implementation", "workflow"],
+      "category": "workflow",
+      "tags": ["spec", "planning", "tasks", "implementation"]
+    },
+    {
+      "name": "continuous-learning-v2",
+      "source": "./skills/continuous-learning-v2",
+      "description": "Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents.",
+      "author": {
+        "name": "Affaan Mustafa"
+      },
+      "license": "MIT",
+      "keywords": ["learning", "instincts", "hooks", "observation", "evolution"],
+      "category": "workflow",
+      "tags": ["learning", "instincts", "hooks", "automation"]
+    },
+    {
       "name": "backend-log",
       "source": "./skills/backend-log",
       "description": "Query backend service logs from Google Cloud Platform. Supports K8s (GKE), Cloud Run, and Cloud Functions with dev tag suffixes.",

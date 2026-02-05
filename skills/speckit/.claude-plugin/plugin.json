@@ -1,0 +1,8 @@
+{
+  "name": "speckit",
+  "description": "Spec-Driven Development workflow. Use when starting new features, documenting requirements, creating implementation plans, or managing development tasks.",
+  "author": {
+    "name": "dceoy",
+    "email": "dceoy@users.noreply.github.com"
+  }
+}
