@@ -1,0 +1,7 @@
+{
+  "name": "planning-with-files",
+  "description": "Manus-style persistent markdown planning pattern - the workflow behind the $2B acquisition. Use filesystem as memory for complex, multi-step tasks.",
+  "author": {
+    "name": "Qashier"
+  }
+}

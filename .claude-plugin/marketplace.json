@@ -9,72 +9,245 @@
   },
   "plugins": [
     {
-      "name": "speckit",
-      "source": "./skills/speckit",
-      "description": "Spec-Driven Development workflow. Use when starting new features, documenting requirements, creating implementation plans, or managing development tasks.",
-      "author": {
-        "name": "dceoy"
-      },
-      "license": "AGPL-3.0",
-      "keywords": ["spec", "planning", "tasks", "implementation", "workflow"],
-      "category": "workflow",
-      "tags": ["spec", "planning", "tasks", "implementation"]
+      "name": "backend-log",
+      "source": "./skills/backend-log",
+      "description": "Query backend service logs from Google Cloud Platform. Supports K8s (GKE), Cloud Run, and Cloud Functions.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "devops"
+    },
+    {
+      "name": "backend-patterns",
+      "source": "./skills/backend-patterns",
+      "description": "Backend architecture patterns, API design, database optimization for Node.js, Express, and Next.js.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "patterns"
+    },
+    {
+      "name": "beads-task-tracker",
+      "source": "./skills/beads-task-tracker",
+      "description": "Distributed git-backed task tracking for AI agents with hash-based IDs.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "workflow"
+    },
+    {
+      "name": "clickhouse-io",
+      "source": "./skills/clickhouse-io",
+      "description": "ClickHouse database patterns, query optimization, and analytics best practices.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "database"
+    },
+    {
+      "name": "coding-standards",
+      "source": "./skills/coding-standards",
+      "description": "Universal coding standards and best practices for TypeScript, JavaScript, React, and Node.js.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "standards"
+    },
+    {
+      "name": "continuous-learning",
+      "source": "./skills/continuous-learning",
+      "description": "Automatically extract reusable patterns from Claude Code sessions as learned skills.",
+      "author": {"name": "Affaan Mustafa"},
+      "license": "MIT",
+      "category": "learning"
     },
     {
       "name": "continuous-learning-v2",
       "source": "./skills/continuous-learning-v2",
-      "description": "Instinct-based learning system that observes sessions via hooks, creates atomic instincts with confidence scoring, and evolves them into skills/commands/agents.",
-      "author": {
-        "name": "Affaan Mustafa"
-      },
+      "description": "Instinct-based learning system with confidence scoring that evolves into skills/commands/agents.",
+      "author": {"name": "Affaan Mustafa"},
       "license": "MIT",
-      "keywords": ["learning", "instincts", "hooks", "observation", "evolution"],
-      "category": "workflow",
-      "tags": ["learning", "instincts", "hooks", "automation"]
+      "category": "learning"
     },
     {
-      "name": "backend-log",
-      "source": "./skills/backend-log",
-      "description": "Query backend service logs from Google Cloud Platform. Supports K8s (GKE), Cloud Run, and Cloud Functions with dev tag suffixes.",
-      "author": {
-        "name": "Qashier"
-      },
+      "name": "deep-research",
+      "source": "./skills/deep-research",
+      "description": "Autonomous multi-step research agent that produces structured reports.",
+      "author": {"name": "Qashier"},
       "license": "MIT",
-      "keywords": ["gcp", "gcloud", "logging", "kubernetes", "cloud-run", "debugging"],
-      "category": "devops",
-      "tags": ["gcp", "logging", "kubernetes", "debugging"]
+      "category": "research"
+    },
+    {
+      "name": "eval-harness",
+      "source": "./skills/eval-harness",
+      "description": "Formal evaluation framework implementing eval-driven development (EDD) principles.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "frontend-patterns",
+      "source": "./skills/frontend-patterns",
+      "description": "Frontend patterns for React, Next.js, state management, and performance optimization.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "patterns"
+    },
+    {
+      "name": "golang-patterns",
+      "source": "./skills/golang-patterns",
+      "description": "Idiomatic Go patterns and best practices for robust, efficient applications.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "patterns"
+    },
+    {
+      "name": "golang-testing",
+      "source": "./skills/golang-testing",
+      "description": "Go testing patterns including table-driven tests, subtests, benchmarks, and fuzzing.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "iterative-retrieval",
+      "source": "./skills/iterative-retrieval",
+      "description": "Pattern for progressively refining context retrieval to solve the subagent context problem.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "workflow"
+    },
+    {
+      "name": "maestro-test-fixer",
+      "source": "./skills/maestro-test-fixer",
+      "description": "Fix failing Maestro UI test scripts with systematic debugging workflow.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "multi-agent-swarm",
+      "source": "./skills/multi-agent-swarm",
+      "description": "Coordinate multiple AI agents with consensus protocols and hierarchical task routing.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "agents"
+    },
+    {
+      "name": "planning-with-files",
+      "source": "./skills/planning-with-files",
+      "description": "Manus-style persistent markdown planning pattern using filesystem as memory.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "workflow"
+    },
+    {
+      "name": "postgres-patterns",
+      "source": "./skills/postgres-patterns",
+      "description": "PostgreSQL patterns for query optimization, schema design, indexing, and security.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "database"
+    },
+    {
+      "name": "quant-research",
+      "source": "./skills/quant-research",
+      "description": "Quantitative finance research including backtesting, data analysis, and trading systems.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "research"
+    },
+    {
+      "name": "repo-everything",
+      "source": "./skills/repo-everything",
+      "description": "Claude Code plugin and learning system - complete collection of agents, skills, hooks, commands.",
+      "author": {"name": "Affaan Mustafa"},
+      "license": "MIT",
+      "category": "meta"
+    },
+    {
+      "name": "repo-gen2",
+      "source": "./skills/repo-gen2",
+      "description": "Qashier Backend Services - Monorepo for backend services powering web, mobile, POS.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "repo"
+    },
+    {
+      "name": "repo-gen2-core-table-management",
+      "source": "./skills/repo-gen2-core-table-management",
+      "description": "Qashier Table Management Service - handles restaurant tables, seating, reservations.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "repo"
+    },
+    {
+      "name": "repo-gen2-core-transaction",
+      "source": "./skills/repo-gen2-core-transaction",
+      "description": "Qashier Transaction Service - handles POS transactions, orders, payment flows.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "repo"
+    },
+    {
+      "name": "security-review",
+      "source": "./skills/security-review",
+      "description": "Comprehensive security checklist for authentication, user input, secrets, and APIs.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "security"
+    },
+    {
+      "name": "skill-learner",
+      "source": "./skills/skill-learner",
+      "description": "Create or update skills in everything-claude-code repo, make installable as plugins.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "learning"
+    },
+    {
+      "name": "speckit",
+      "source": "./skills/speckit",
+      "description": "Spec-Driven Development workflow from constitution to specification to implementation.",
+      "author": {"name": "dceoy"},
+      "license": "AGPL-3.0",
+      "category": "workflow"
+    },
+    {
+      "name": "strategic-compact",
+      "source": "./skills/strategic-compact",
+      "description": "Manual context compaction at logical intervals to preserve context through task phases.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "workflow"
+    },
+    {
+      "name": "tdd-workflow",
+      "source": "./skills/tdd-workflow",
+      "description": "Test-driven development with 80%+ coverage including unit, integration, and E2E tests.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "test-fix-loop",
+      "source": "./skills/test-fix-loop",
+      "description": "Multi-agent test-fix cycle with parallel repair workers until all tests pass.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
+      "name": "verification-loop",
+      "source": "./skills/verification-loop",
+      "description": "Comprehensive verification: build, type check, lint, test, and security scans before PR.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
     },
     {
       "name": "everything-claude-code",
       "source": "./",
-      "description": "Complete collection of agents, skills, hooks, commands, and rules evolved over 10+ months of intensive daily use",
-      "author": {
-        "name": "Affaan Mustafa"
-      },
+      "description": "Complete collection of agents, skills, hooks, commands, and rules evolved over 10+ months.",
+      "author": {"name": "Affaan Mustafa"},
       "homepage": "https://github.com/affaan-m/everything-claude-code",
-      "repository": "https://github.com/affaan-m/everything-claude-code",
       "license": "MIT",
-      "keywords": [
-        "agents",
-        "skills",
-        "hooks",
-        "commands",
-        "tdd",
-        "code-review",
-        "security",
-        "best-practices"
-      ],
-      "category": "workflow",
-      "tags": [
-        "agents",
-        "skills",
-        "hooks",
-        "commands",
-        "tdd",
-        "code-review",
-        "security",
-        "best-practices"
-      ]
+      "category": "meta"
     }
   ]
 }

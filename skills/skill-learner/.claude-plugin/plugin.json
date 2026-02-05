@@ -1,0 +1,8 @@
+{
+  "name": "skill-learner",
+  "description": "Create or update skills in the everything-claude-code repo. Clone repo, find existing skill to update or create new one, make it installable as independent plugin for both Clawdbot and Claude Code, then commit and push. Use when learning new patterns, capturing workflows, or packaging knowledge into reusable skills.
+<what it does + when to use>",
+  "author": {
+    "name": "Qashier"
+  }
+}

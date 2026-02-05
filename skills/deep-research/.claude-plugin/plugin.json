@@ -1,0 +1,7 @@
+{
+  "name": "deep-research",
+  "description": "Autonomous multi-step research agent. Breaks down complex questions, gathers evidence, synthesizes findings, and produces structured reports.",
+  "author": {
+    "name": "Qashier"
+  }
+}

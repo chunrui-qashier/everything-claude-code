@@ -1,0 +1,7 @@
+{
+  "name": "repo-gen2-core-table-management",
+  "description": "Qashier Table Management Service - handles restaurant tables, seating, reservations",
+  "author": {
+    "name": "Qashier"
+  }
+}

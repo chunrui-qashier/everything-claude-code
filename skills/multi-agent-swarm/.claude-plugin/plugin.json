@@ -1,0 +1,7 @@
+{
+  "name": "multi-agent-swarm",
+  "description": "Coordinate multiple AI agents working in parallel. Includes consensus protocols, drift prevention, and hierarchical task routing.",
+  "author": {
+    "name": "Qashier"
+  }
+}

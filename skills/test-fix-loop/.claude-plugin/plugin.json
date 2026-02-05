@@ -1,0 +1,7 @@
+{
+  "name": "test-fix-loop",
+  "description": "Multi-agent test-fix cycle. CC-Test writes failure reports, Fixers repair code, Lead reviews, then re-test until all pass. Use when running integration tests with parallel repair workers.",
+  "author": {
+    "name": "Qashier"
+  }
+}

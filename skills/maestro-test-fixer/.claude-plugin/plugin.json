@@ -1,0 +1,7 @@
+{
+  "name": "maestro-test-fixer",
+  "description": "Fix failing Maestro UI test scripts step by step. Use when debugging Android/iOS test failures, element not found errors, or test flow issues. Provides systematic debugging workflow with screenshots and manual step execution.",
+  "author": {
+    "name": "Qashier"
+  }
+}
