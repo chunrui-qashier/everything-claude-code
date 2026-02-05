@@ -241,6 +241,14 @@
       "category": "testing"
     },
     {
+      "name": "txn-converter-bug-fix",
+      "source": "./skills/txn-converter-bug-fix",
+      "description": "Fix bugs in transaction converter using production Firestore data as test fixtures.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "testing"
+    },
+    {
       "name": "everything-claude-code",
       "source": "./",
       "description": "Complete collection of agents, skills, hooks, commands, and rules evolved over 10+ months.",
