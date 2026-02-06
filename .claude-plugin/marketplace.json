@@ -17,6 +17,14 @@
       "category": "devops"
     },
     {
+      "name": "backend-review",
+      "source": "./skills/backend-review",
+      "description": "Review TypeScript backend code for quality, patterns, and compliance. Enforces project constitution, prohibits dynamic imports, requires explicit Firestore typing.",
+      "author": {"name": "Qashier"},
+      "license": "MIT",
+      "category": "review"
+    },
+    {
       "name": "backend-patterns",
       "source": "./skills/backend-patterns",
       "description": "Backend architecture patterns, API design, database optimization for Node.js, Express, and Next.js.",

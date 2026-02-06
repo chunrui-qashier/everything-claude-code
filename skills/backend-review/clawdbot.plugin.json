@@ -1,0 +1,9 @@
+{
+  "id": "backend-review",
+  "name": "Backend Code Review",
+  "description": "Review TypeScript backend code for quality, patterns, and compliance. Enforces project constitution, prohibits dynamic imports, requires explicit Firestore typing.",
+  "version": "1.0.0",
+  "skills": [
+    "."
+  ]
+}
